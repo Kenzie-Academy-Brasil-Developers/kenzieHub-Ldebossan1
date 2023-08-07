@@ -1,0 +1,52 @@
+.headerDiv {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 4.5rem;
+    width: 100vw;
+    border-bottom: 0.0625rem solid var(--gray-3);
+
+    & button {
+        width: 3.4375rem;
+        height: 2rem;
+        padding: 0 1rem;
+    }
+}
+
+.profileDiv {
+    width: 100vw;
+    height: 7.375rem;
+    
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    border-bottom: 0.0625rem solid var(--gray-3);
+
+    & h2 {
+        color: var(--gray-0);
+    }
+
+    & p {
+        color: var(--gray-1);
+    }
+}
+
+.dashboardMain {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    padding-left: 18vw;
+
+    width: 100vw;  
+    height: 50vh;
+
+    & h2 {
+        color: var(--gray-0);
+    }
+
+    & p {
+        color: #FFFFFF;
+    }
+}

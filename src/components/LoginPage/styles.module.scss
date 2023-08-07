@@ -1,0 +1,62 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 3.125rem;
+}
+
+.formDiv {
+  display: inline-flex;
+  align-items: center;
+  flex-direction: column;
+
+  max-width: 23.0625rem;
+  width: 100%;
+  min-height: 900px;
+  height: 100%;
+  gap: 0.625rem;
+  margin-top: 1.25rem;
+
+  background-color: var(--gray-3);
+
+  & input {
+    max-width: 23.0625rem;
+    width: 100%;
+    height: 48px;
+    border-radius: 0.25rem;
+    border: 0.0625rem solid var(--gray-0);
+    padding: 0 1rem;
+    background-color: var(--gray-2);
+    color: var(--gray-0);
+  }
+
+  & h3 {
+    color: var(--gray-0);
+    display: flex;
+    justify-content: center;
+  }
+
+  & label {
+    color: var(--gray-0);
+  }
+
+  & p {
+    color: var(--gray-1);
+    margin-top: 1.25rem;
+  }
+
+  & button {
+    width: 85%;
+    margin-top: 0.625rem;
+  }
+
+  & .formSec {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.875rem;
+    gap: 1.375rem;
+    max-width: 19.6875rem;
+    width: 100%;
+  }
+}
