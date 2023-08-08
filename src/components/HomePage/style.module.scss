@@ -1,3 +1,5 @@
+
+
 .headerDiv {
     display: flex;
     justify-content: space-around;
@@ -5,6 +7,7 @@
     height: 4.5rem;
     width: 100vw;
     border-bottom: 0.0625rem solid var(--gray-3);
+    padding: 0 auto;
 
     & button {
         width: 3.4375rem;
@@ -16,6 +19,7 @@
 .profileDiv {
     width: 100vw;
     height: 7.375rem;
+    padding: 0 auto;
     
     display: flex;
     justify-content: space-around;

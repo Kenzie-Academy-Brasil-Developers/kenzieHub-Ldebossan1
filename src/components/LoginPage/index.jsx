@@ -1,7 +1,19 @@
+import { Link } from "react-router-dom";
 import logo from "../../assets/Logo.svg"
 import styles from "./styles.module.scss";
+import { useForm } from "react-hook-form";
+import { Input } from "../Input";
+
+
 
 export const LoginPage = () => {
+
+  const {register, handleSubmit} = useForm()
+
+  const submit = (formData) => {
+    console.log(formData)
+  }
+
   return (
     <>
       <section className={styles.container}>
@@ -10,34 +22,17 @@ export const LoginPage = () => {
         </div>
 
         <div className={styles.formDiv}>
-          <form className={styles.formSec}>
+          <form onSubmit={handleSubmit(submit)} className={styles.formSec}>
             <h3 className="title1">Login</h3>
-
-            <label className="headline" htmlFor="emailInput">
-              Email
-            </label>
-            <input
-              type="email"
-              name="emailInput"
-              id="emailInput"
-              placeholder="Digite aqui seu email"
-            />
-
-            <label className="headline" htmlFor="passwordInput">
-              Senha
-            </label>
-            <input
-              type="password"
-              name="passwordInput"
-              id="passwordInput"
-              placeholder="Digite aqui sua senha"
-            />
+            <Input required label="Email" type="email" placeholder="Digite aqui seu email" {...register('email')}/>
+            <Input required label="Senha" type="password" placeholder="Digite aqui sua senha" {...register('password')}/>
+          
+            <Link to="/dashboard" className="buttonPink">Entrar</Link>
           </form>
 
-          <button className="buttonPink">Entrar</button>
 
           <p className="headline">Você ainda não possui conta?</p>
-          <button className="buttonGray">Cadastrar-se</button>
+          <Link to="/register" className="buttonGray">Cadastrar-se</Link>
         </div>
       </section>
     </>
