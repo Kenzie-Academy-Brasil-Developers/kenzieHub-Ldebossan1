@@ -3,12 +3,17 @@ import logo from "../../assets/Logo.svg"
 import styles from "./styles.module.scss";
 import { useForm } from "react-hook-form";
 import { Input } from "../Input";
+import { zodResolver } from "@hookform/resolvers/zod"
+import { loginFormSchema } from "./loginFormSchema,";
 
 
 
 export const LoginPage = () => {
 
-  const {register, handleSubmit} = useForm()
+  const {register, handleSubmit, formState:{ errors }} = useForm({
+    resolver: zodResolver(loginFormSchema)
+  })
+
 
   const submit = (formData) => {
     console.log(formData)
@@ -24,10 +29,10 @@ export const LoginPage = () => {
         <div className={styles.formDiv}>
           <form onSubmit={handleSubmit(submit)} className={styles.formSec}>
             <h3 className="title1">Login</h3>
-            <Input required label="Email" type="email" placeholder="Digite aqui seu email" {...register('email')}/>
-            <Input required label="Senha" type="password" placeholder="Digite aqui sua senha" {...register('password')}/>
+            <Input label="Email" type="email" placeholder="Digite aqui seu email" {...register('email')} error={errors.email}/>
+            <Input label="Senha" type="password" placeholder="Digite aqui sua senha" {...register('password')} error={errors.password}/>
           
-            <Link to="/dashboard" className="buttonPink">Entrar</Link>
+            <button to="/dashboard" className="buttonPink">Entrar</button>
           </form>
 
 

@@ -3,15 +3,23 @@ import logo from "../../assets/Logo.svg";
 import styles from "./style.module.scss";
 import { Link } from "react-router-dom";
 import { Input } from "../Input";
+import { zodResolver } from "@hookform/resolvers/zod"
+import { registerFormSchema } from "./registerFormSchema";
 
 
 export const RegisterPage = () => {
-  const { register, handleSubmit} = useForm()
+  const { register, handleSubmit, formState:{ errors }} = useForm({
+    resolver: zodResolver(registerFormSchema)
+  })
 
+  
   const submit = (formData) => {
     console.log(formData)
     alert('Conta criada com sucesso')
   }
+
+
+
 
   return (
     <section className={styles.container}>
@@ -26,12 +34,17 @@ export const RegisterPage = () => {
             <h3 className="title1">Crie sua conta</h3>
             <p className="headline">Rapido e grátis, vamos nessa</p>
           </div>
-          <Input required label="Nome" type="text" placeholder="Digite aqui seu nome" {...register('name')}/>
-          <Input required label="Email" type="email" placeholder="Digite aqui seu email" {...register('email')}/>
-          <Input required label="Senha" type="password" placeholder="Digite aqui sua senha" {...register('password')}/>
-          <Input required label="Confirme sua senha" type="password" placeholder="Digite novamente a sua senha"/>
-          <Input required label="Bio" type="text" placeholder="Fale sobre você" {...register('bio')}/>
-          <Input required label="Contato" type="text" placeholder="Opção de contato" {...register('contact')}/>
+          <Input label="Nome" type="text" placeholder="Digite aqui seu nome" {...register('name')} error={errors.name}/>
+
+          <Input label="Email" type="email" placeholder="Digite aqui seu email" {...register('email')} error={errors.email}/>
+
+          <Input label="Senha" type="password" placeholder="Digite aqui sua senha" {...register('password')} error={errors.password}/>
+
+          <Input label="Confirme sua senha" type="password" placeholder="Digite novamente a sua senha" {...register('confirmPassword')} error={errors.confirmPassword}/>
+
+          <Input label="Bio" type="text" placeholder="Fale sobre você" {...register('bio')} error={errors.bio}/>
+
+          <Input label="Contato" type="text" placeholder="Opção de contato" {...register('contact')} error={errors.contact}/>
 
           <label className="headline" htmlFor="moduleSelect">
             Selecionar módulo
