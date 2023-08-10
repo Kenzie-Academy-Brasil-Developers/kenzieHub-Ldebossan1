@@ -1,22 +1,44 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/Logo.svg"
 import styles from "./styles.module.scss";
 import { useForm } from "react-hook-form";
 import { Input } from "../Input";
 import { zodResolver } from "@hookform/resolvers/zod"
 import { loginFormSchema } from "./loginFormSchema,";
+import { useState } from "react";
+import axios from "axios";
+import { Api } from "../../api";
 
 
 
-export const LoginPage = () => {
+export const LoginPage = ({setUser}) => {
 
   const {register, handleSubmit, formState:{ errors }} = useForm({
     resolver: zodResolver(loginFormSchema)
   })
 
+  const navigate = useNavigate()
+
+  const [loading, setLoading] = useState(false)
+
+  const userLogin = async (formData) => {
+    try {
+      setLoading(true)
+      const { data } = await Api.post('/sessions', formData)
+      setUser(data.user)
+      localStorage.setItem('@TOKEN', data.token)
+      navigate('/dashboard')
+    } catch (error) {
+      if(error.response?.data.message === 'Incorrect email / password combination') {
+        alert('Email e/ou senha incorreto.')
+      }
+    } finally {
+      setLoading(false)
+    }
+  }
 
   const submit = (formData) => {
-    console.log(formData)
+    userLogin(formData)
   }
 
   return (

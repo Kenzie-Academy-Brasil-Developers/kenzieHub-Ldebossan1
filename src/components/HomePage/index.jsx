@@ -1,17 +1,27 @@
+import { useNavigate } from "react-router-dom";
 import logo from "../../assets/Logo.svg";
 import styles from "./style.module.scss"
 
-export const HomePage = () => {
+export const HomePage = ({user, setUser}) => {
+
+  const navigate = useNavigate()
+
+  const logoutUser = () => {
+    localStorage.removeItem('@TOKEN')
+    setUser(null)
+    navigate('/')
+  }
+
   return (
     <>
       <header className={styles.headerDiv}>
         <img src={logo} alt="KenzieHubLogo" />
-        <button className="buttonBlack">Sair</button>
+        <button onClick={() => logoutUser()} className="buttonBlack">Sair</button>
       </header>
 
       <div className={styles.profileDiv}>
-        <h2 className="title1">Olá, Samuel Leão</h2>
-        <p className="headline">Primeiro módulo  (Introdução ao Frontend)</p>
+        <h2 className="title1">Olá,{user?.name}</h2>
+        <p className="headline">{user?.course_module}</p>
       </div>
 
       <div className={styles.dashboardMain}>
