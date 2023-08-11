@@ -48,7 +48,8 @@
 }
 
 .loginButtons {
-  width: 20.25rem;
+  max-width: 20.25rem;
+  width: 100%;
   height: 3rem;
   margin-top: 0.625rem;
   margin: 0 auto;

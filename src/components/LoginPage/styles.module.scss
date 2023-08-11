@@ -23,8 +23,9 @@
   background-color: var(--gray-3);
 
   & input {
-    width: 20.5625rem;
+    max-width: 20.5625rem;
     height: 3rem;
+    width: 100%;
     border-radius: 0.25rem;
     border: 0.0625rem solid var(--gray-0);
     padding: 0 1rem;
