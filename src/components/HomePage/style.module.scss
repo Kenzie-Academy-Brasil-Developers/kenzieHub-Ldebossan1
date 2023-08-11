@@ -1,56 +1,54 @@
-
-
 .headerDiv {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 4.5rem;
-    width: 100vw;
-    border-bottom: 0.0625rem solid var(--gray-3);
-    padding: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 4.5rem;
+  width: 100vw;
+  border-bottom: 0.0625rem solid var(--gray-3);
+  padding: 0 auto;
 
-    & button {
-        width: 3.4375rem;
-        height: 2rem;
-        padding: 0 1rem;
-    }
+  & button {
+    width: 3.4375rem;
+    height: 2rem;
+    padding: 0 1rem;
+  }
 }
 
 .profileDiv {
-    width: 100vw;
-    height: 7.375rem;
-    padding: 0 auto;
-    
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+  width: 100vw;
+  height: 7.375rem;
+  padding: 0 auto;
 
-    border-bottom: 0.0625rem solid var(--gray-3);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 
-    & h2 {
-        color: var(--gray-0);
-    }
+  border-bottom: 0.0625rem solid var(--gray-3);
 
-    & p {
-        color: var(--gray-1);
-    }
+  & h2 {
+    color: var(--gray-0);
+  }
+
+  & p {
+    color: var(--gray-1);
+  }
 }
 
 .dashboardMain {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 
-    padding-left: 18vw;
+  padding-left: 18vw;
 
-    width: 100vw;  
-    height: 50vh;
+  width: 100vw;
+  height: 50vh;
 
-    & h2 {
-        color: var(--gray-0);
-    }
+  & h2 {
+    color: var(--gray-0);
+  }
 
-    & p {
-        color: #FFFFFF;
-    }
+  & p {
+    color: #ffffff;
+  }
 }

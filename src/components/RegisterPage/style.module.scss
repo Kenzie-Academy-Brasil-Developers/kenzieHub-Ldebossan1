@@ -11,12 +11,12 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  max-width: 370px;
+  max-width: 23.125rem;
   width: 100%;
 
   & button {
-    width: 67px;
-    height: 40px;
+    width: 4.1875rem;
+    height: 2.5rem;
   }
 }
 
@@ -37,8 +37,8 @@
   & button {
     width: 90%;
     height: 3rem;
-    margin-top: 0.625rem;
-    margin: 0 auto;
+
+
   }
 
   & input {
@@ -50,20 +50,11 @@
     padding: 0 16px;
     background-color: var(--gray-2);
     color: var(--gray-1);
-
-    :disabled {
-      opacity: .5;
-    }
   }
 
   & button {
     width: 98%;
-    margin-top: 0.625rem;
-
-    :disabled {
-      cursor: not-allowed;
-      opacity: .5;
-    }
+    margin-top: 0.625rem; 
   }
 
   & label {
@@ -81,22 +72,20 @@
 }
 
 .headerForm {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
 
-    
   & h3 {
-    color: #FFFFFF;
+    color: #ffffff;
   }
 
   & p {
     color: var(--gray-1);
   }
 }
-
 
 select {
   max-width: 330px;
@@ -108,4 +97,3 @@ select {
   background-color: var(--gray-2);
   color: var(--gray-1);
 }
-
