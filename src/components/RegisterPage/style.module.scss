@@ -29,7 +29,7 @@
   width: 100%;
   height: auto;
   padding-bottom: 30px;
-  gap: 10px;
+  gap: 5px;
   margin-top: 20px;
 
   background-color: var(--gray-3);
@@ -50,6 +50,7 @@
     padding: 0 16px;
     background-color: var(--gray-2);
     color: var(--gray-1);
+    
   }
 
   & button {

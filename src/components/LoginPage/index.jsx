@@ -44,7 +44,7 @@ export const LoginPage = ({ setUser }) => {
   return (
     <>
       <section className={styles.container}>
-        <div>
+        <div className={styles.logoImg}>
           <img src={logo} alt="KenzieHub Logo" />
         </div>
 
