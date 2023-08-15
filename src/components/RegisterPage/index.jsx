@@ -6,12 +6,13 @@ import { Input } from "../Input";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { registerFormSchema } from "./registerFormSchema";
 import { Api } from "../../api";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { toast } from "react-toastify";
+import { UserContext } from "../../providers/UserContext";
 
 export const RegisterPage = () => {
   const [loading, setLoading] = useState(false);
-
+  const { userRegister } = useContext(UserContext)
   const navigate = useNavigate();
 
   const backToLogin = () => {
@@ -22,27 +23,11 @@ export const RegisterPage = () => {
     resolver: zodResolver(registerFormSchema),
   });
 
-  const userRegister = async (formData) => {
-    try {
-      setLoading(true);
-      await Api.post("/users", formData);
-      toast.success("Conta criada com sucesso", {
-        theme: "dark",
-      });
-      navigate("/");
-    } catch (error) {
-      if (error.response?.data.message === "Email already exists") {
-        toast.error("Ops! Algo deu errado.", {
-          theme: "dark",
-        });
-      }
-    } finally {
-      setLoading(false);
-    }
-  };
+
+
 
   const submit = (formData) => {
-    userRegister(formData);
+    userRegister(formData, setLoading);
   };
 
   return (

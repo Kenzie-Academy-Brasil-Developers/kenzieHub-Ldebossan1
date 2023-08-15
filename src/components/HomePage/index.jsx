@@ -1,15 +1,12 @@
 import { useNavigate } from "react-router-dom";
 import logo from "../../assets/Logo.svg";
 import styles from "./style.module.scss";
+import { useContext } from "react";
+import { UserContext } from "../../providers/UserContext";
 
-export const HomePage = ({ user, setUser }) => {
-  const navigate = useNavigate();
+export const HomePage = () => {
+  const { user, logoutUser } = useContext(UserContext)
 
-  const logoutUser = () => {
-    localStorage.removeItem("@TOKEN");
-    setUser(null);
-    navigate("/");
-  };
 
   return (
     <>

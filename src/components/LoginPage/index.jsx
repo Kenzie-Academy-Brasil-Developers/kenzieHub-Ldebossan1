@@ -5,11 +5,12 @@ import { useForm } from "react-hook-form";
 import { Input } from "../Input";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { loginFormSchema } from "./loginFormSchema,";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import axios from "axios";
 import { Api } from "../../api";
+import { UserContext } from "../../providers/UserContext";
 
-export const LoginPage = ({ setUser }) => {
+export const LoginPage = () => {
   const { register, handleSubmit, formState: { errors } } = useForm({
     resolver: zodResolver(loginFormSchema),
   });
@@ -18,27 +19,10 @@ export const LoginPage = ({ setUser }) => {
 
   const [loading, setLoading] = useState(false);
 
-  const userLogin = async (formData) => {
-    try {
-      setLoading(true);
-      const { data } = await Api.post("/sessions", formData);
-      setUser(data.user);
-      localStorage.setItem("@TOKEN", data.token);
-      navigate("/dashboard");
-    } catch (error) {
-      if (
-        error.response?.data.message ===
-        "Incorrect email / password combination"
-      ) {
-        alert("Email e/ou senha incorreto.");
-      }
-    } finally {
-      setLoading(false);
-    }
-  };
+  const { userLogin } = useContext(UserContext)
 
   const submit = (formData) => {
-    userLogin(formData);
+    userLogin(formData, setLoading);
   };
 
   return (
