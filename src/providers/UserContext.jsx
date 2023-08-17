@@ -10,23 +10,23 @@ export const UserProvider = ({ children }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const token = localStorage.getItem("@TOKEN")
+    const token = localStorage.getItem("@TOKEN");
 
     const getUser = async () => {
       try {
-        const {data} = await Api.get("/profile", {
-          headers:{
-            Authorization: `Bearer ${token}`
-          }
-        })
-        setUser(data)
-        navigate("/dashboard")
+        const { data } = await Api.get("/profile", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        setUser(data);
+        navigate("/dashboard");
       } catch (error) {
-        console.log(error)
+        console.log(error);
       }
     };
-    if(token) {
-      getUser()
+    if (token) {
+      getUser();
     }
   }, []);
 
