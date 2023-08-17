@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Api } from "../api";
 import { toast } from "react-toastify";
@@ -8,6 +8,27 @@ export const UserContext = createContext({});
 export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = localStorage.getItem("@TOKEN")
+
+    const getUser = async () => {
+      try {
+        const {data} = await Api.get("/profile", {
+          headers:{
+            Authorization: `Bearer ${token}`
+          }
+        })
+        setUser(data)
+        navigate("/dashboard")
+      } catch (error) {
+        console.log(error)
+      }
+    };
+    if(token) {
+      getUser()
+    }
+  }, []);
 
   const logoutUser = () => {
     localStorage.removeItem("@TOKEN");
@@ -27,8 +48,8 @@ export const UserProvider = ({ children }) => {
         error.response?.data.message ===
         "Incorrect email / password combination"
       ) {
-        toast.error("Email e/ou senha incorreto.",{
-            theme:"dark",
+        toast.error("Email e/ou senha incorreto.", {
+          theme: "dark",
         });
       }
     } finally {
@@ -55,8 +76,9 @@ export const UserProvider = ({ children }) => {
     }
   };
 
-
-  return <UserContext.Provider value={{ user, logoutUser, userLogin, userRegister }}>
-            {children}
-        </UserContext.Provider>;
+  return (
+    <UserContext.Provider value={{ user, logoutUser, userLogin, userRegister }}>
+      {children}
+    </UserContext.Provider>
+  );
 };
