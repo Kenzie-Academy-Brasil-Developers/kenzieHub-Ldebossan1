@@ -13,13 +13,18 @@ export const TechList = () => {
     <div className={styles.dashboard}>
       <div className={styles.dashboardHeader}>
         <h2 className="title1">Tecnologias</h2>
-        <button onClick={() =>{setIsVisible(true)}} title="Adicionar">
+        <button
+          onClick={() => {
+            setIsVisible(true);
+          }}
+          title="Adicionar"
+        >
           <img src={addTech} />
         </button>
       </div>
       <ul className={styles.techList}>
         {techList?.map((tech) => (
-            <TechCard key={tech.id} tech={tech}/>
+          <TechCard key={tech.id} tech={tech} />
         ))}
       </ul>
     </div>

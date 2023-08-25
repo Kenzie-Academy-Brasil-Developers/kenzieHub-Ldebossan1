@@ -9,7 +9,11 @@ import { useContext, useState } from "react";
 import { UserContext } from "../../providers/UserContext";
 
 export const LoginPage = () => {
-  const { register, handleSubmit, formState: { errors } } = useForm({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
     resolver: zodResolver(loginFormSchema),
   });
 
@@ -17,7 +21,7 @@ export const LoginPage = () => {
 
   const [loading, setLoading] = useState(false);
 
-  const { userLogin } = useContext(UserContext)
+  const { userLogin } = useContext(UserContext);
 
   const submit = (formData) => {
     userLogin(formData, setLoading);
@@ -48,13 +52,14 @@ export const LoginPage = () => {
               error={errors.password}
             />
 
-            <button className="buttonPink loginButtons">
-              Entrar
-            </button>
+            <button className="buttonPink loginButtons">Entrar</button>
           </form>
 
           <p className="headline">Você ainda não possui conta?</p>
-          <button onClick={() => navigate("/register")} className="buttonGray loginButtons">
+          <button
+            onClick={() => navigate("/register")}
+            className="buttonGray loginButtons"
+          >
             Cadastrar-se
           </button>
         </div>

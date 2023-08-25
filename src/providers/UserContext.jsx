@@ -9,7 +9,7 @@ export const UserContext = createContext({});
 export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
-  const [techList, setTechList] = useState([])
+  const [techList, setTechList] = useState([]);
 
   useEffect(() => {
     const token = localStorage.getItem("@TOKEN");
@@ -22,7 +22,7 @@ export const UserProvider = ({ children }) => {
           },
         });
         setUser(data);
-        setTechList(data.techs)
+        setTechList(data.techs);
         navigate("/dashboard");
       } catch (error) {
         console.log(error);
@@ -45,7 +45,7 @@ export const UserProvider = ({ children }) => {
       setLoading(true);
       const { data } = await Api.post("/sessions", formData);
       setUser(data.user);
-      setTechList(data.user.techs)
+      setTechList(data.user.techs);
       localStorage.setItem("@TOKEN", data.token);
       navigate("/dashboard");
     } catch (error) {
@@ -82,7 +82,16 @@ export const UserProvider = ({ children }) => {
   };
 
   return (
-    <UserContext.Provider value={{ user, techList, setTechList, logoutUser, userLogin, userRegister }}>
+    <UserContext.Provider
+      value={{
+        user,
+        techList,
+        setTechList,
+        logoutUser,
+        userLogin,
+        userRegister,
+      }}
+    >
       {children}
     </UserContext.Provider>
   );

@@ -10,14 +10,18 @@ import { UserContext } from "../../providers/UserContext";
 
 export const RegisterPage = () => {
   const [loading, setLoading] = useState(false);
-  const { userRegister } = useContext(UserContext)
+  const { userRegister } = useContext(UserContext);
   const navigate = useNavigate();
 
   const backToLogin = () => {
     navigate("/");
   };
 
-  const { register, handleSubmit, formState: { errors } } = useForm({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
     resolver: zodResolver(registerFormSchema),
   });
 

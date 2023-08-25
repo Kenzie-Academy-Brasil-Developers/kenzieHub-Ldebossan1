@@ -14,29 +14,27 @@ export const HomePage = () => {
 
   return (
     <>
-    <div>
-
-      <header className={styles.headerDiv}>
-        <div className={styles.headerContent}>
-          <img src={logo} alt="KenzieHubLogo" />
-          <button onClick={() => logoutUser()} className="buttonBlack">
-            Sair
-          </button>
-        </div>
-      </header>
-
-      <div className={styles.profileDiv}>
-        <h2 className="title1">Olá,{user?.name}</h2>
-        <p className="headline">{user?.course_module}</p>
-        
-      </div>
-      
       <div>
-        <TechList />
+        <header className={styles.headerDiv}>
+          <div className={styles.headerContent}>
+            <img src={logo} alt="KenzieHubLogo" />
+            <button onClick={() => logoutUser()} className="buttonBlack">
+              Sair
+            </button>
+          </div>
+        </header>
+
+        <div className={styles.profileDiv}>
+          <h2 className="title1">Olá,{user?.name}</h2>
+          <p className="headline">{user?.course_module}</p>
+        </div>
+
+        <div>
+          <TechList />
+        </div>
       </div>
-    </div>
-    {isVisible === true ? <RegisterModal /> : null}
-    {visibility === true ? <EditModal /> : null}
+      {isVisible === true ? <RegisterModal /> : null}
+      {visibility === true ? <EditModal /> : null}
     </>
   );
 };

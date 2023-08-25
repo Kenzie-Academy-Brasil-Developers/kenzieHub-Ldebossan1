@@ -10,9 +10,8 @@ import { TechContext } from "../../providers/TechContext";
 export const RegisterModal = () => {
   const { isVisible, setIsVisible, createTech } = useContext(TechContext);
   const { register, handleSubmit } = useForm({
-    resolver:zodResolver(RegisterTechSchema)
-  })
-
+    resolver: zodResolver(RegisterTechSchema),
+  });
 
   return (
     <div role="dialog" className={styles.modalContainer}>
@@ -21,16 +20,13 @@ export const RegisterModal = () => {
           <h3 className={styles.headerTitle}>Cadastrar tecnologia</h3>
           <button
             onClick={() => {
-              setIsVisible(false);             
+              setIsVisible(false);
             }}
           >
             <img src={closeButton} alt="X" />
           </button>
         </header>
-        <form
-          className={styles.modalForm}
-          onSubmit={handleSubmit(createTech)}
-        >
+        <form className={styles.modalForm} onSubmit={handleSubmit(createTech)}>
           <Input
             {...register("title")}
             label="Nome"
