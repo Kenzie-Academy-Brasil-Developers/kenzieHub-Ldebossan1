@@ -6,8 +6,6 @@ import { Input } from "../Input";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { loginFormSchema } from "./loginFormSchema,";
 import { useContext, useState } from "react";
-import axios from "axios";
-import { Api } from "../../api";
 import { UserContext } from "../../providers/UserContext";
 
 export const LoginPage = () => {

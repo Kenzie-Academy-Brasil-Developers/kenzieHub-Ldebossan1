@@ -4,6 +4,7 @@ import { RegisterPage } from "../components/RegisterPage";
 import { HomePage } from "../components/HomePage";
 import { useState } from "react";
 import { PrivateRoutes } from "./PrivateRoutes";
+import { TechProvider } from "../providers/TechContext";
 
 export const RoutesMain = () => {
   return (

@@ -5,9 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { Input } from "../Input";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { registerFormSchema } from "./registerFormSchema";
-import { Api } from "../../api";
 import { useContext, useState } from "react";
-import { toast } from "react-toastify";
 import { UserContext } from "../../providers/UserContext";
 
 export const RegisterPage = () => {
@@ -22,9 +20,6 @@ export const RegisterPage = () => {
   const { register, handleSubmit, formState: { errors } } = useForm({
     resolver: zodResolver(registerFormSchema),
   });
-
-
-
 
   const submit = (formData) => {
     userRegister(formData, setLoading);

@@ -3,9 +3,8 @@
   justify-content: space-around;
   align-items: center;
   height: 4.5rem;
-  width: 100vw;
+  width: 100%;
   border-bottom: 0.0625rem solid var(--gray-3);
-  padding: 0 auto;
 
   & button {
     width: 3.4375rem;
@@ -14,10 +13,18 @@
   }
 }
 
+.headerContent {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
 .profileDiv {
-  width: 100vw;
+  width: 100%;
   height: 7.375rem;
-  padding: 0 auto;
+
+  padding: 0px 63px;
 
   display: flex;
   justify-content: space-around;
@@ -31,25 +38,5 @@
 
   & p {
     color: var(--gray-1);
-  }
-}
-
-.dashboardMain {
-  display: flex;
-  flex-direction: column;
-
-  margin-top: 5.125rem;
-  margin-left:21.6%;
-  gap: 3.1875rem;
-
-  height: 50vh;
-
-  line-height: 1.75rem;
-  & h2 {
-    color: var(--gray-0);
-  }
-
-  & p {
-    color: #ffffff;
   }
 }
